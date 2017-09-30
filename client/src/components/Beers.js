@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getBeers } from '../actions/beers';
+import { getBeers } from '../actions/Beers';
 import { Container, Grid, Header, Card, Image } from 'semantic-ui-react';
 
 
