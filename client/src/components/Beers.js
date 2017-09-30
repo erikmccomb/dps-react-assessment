@@ -14,19 +14,11 @@ class Beers extends Component {
             alt='6 pints of Beer image'
             style = {styles.beer}
           />
-          <Header as='h1' style={styles.header}>Beers</Header>
+          <Header as='h1' style={styles.header}>DRINK ALL OF THE BEERS</Header>
         </Segment>
         <Grid>
           <Grid.Column computer={8} tablet={8} mobile={16}>
             <Segment inverted>
-              <Header
-                as='h1'
-                textAlign='center'
-                style={styles.header}
-              >
-                Assessment Details:
-              </Header>
-              <Divider />
             </Segment>
           </Grid.Column>
           <Grid.Column computer={8} tablet={8} mobile={16}>
