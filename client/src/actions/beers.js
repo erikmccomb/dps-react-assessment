@@ -21,9 +21,9 @@ export const updateBeer = (beer) => {
   }
 }
 
-export const deleteBeer = (beer) => {
-  return (dispatch) => {
-    axios.delete(`/api/all_beers/${id}`)
-      .then( () => dispatch({ type: 'DELETE_BEER', id }) )
-  }
-}
+// export const deleteBeer = (beer) => {
+//   return (dispatch) => {
+//     axios.delete(`/api/all_beers/${beer.id}`)
+//       .then( () => dispatch({ type: 'DELETE_BEER', beer.id }) )
+//   }
+// }

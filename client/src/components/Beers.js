@@ -1,51 +1,60 @@
-import React, { Component } from 'react';
-import { Header, Segment, Divider, Grid, Image } from 'semantic-ui-react';
-import ReactMarkDown from 'react-markdown';
-import axios from 'axios';
-import dpsLogo from '../images/dpsLogo.svg';
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getBeers } from '../actions/beers';
+import { Container, Grid, Header, Card, Image } from 'semantic-ui-react';
+
 
 class Beers extends Component {
+  componentDidMount() {
+    this.props.dispatch(getBeers())
+  }
+
+  beers = () => {
+    return this.props.beers.map( beer =>
+      <Grid.Column computer={4}>
+        <Card>
+          <Card.Content>
+            <Card.Header>
+              {beer.name}
+            </Card.Header>
+          </Card.Content>
+        </Card>
+      </Grid.Column>
+    )
+  }
+
   render() {
     return (
-      <Segment basic>
-        <Segment basic textAlign='center'>
-          <Image
-            src={require('../images/beer.png')} 
-            alt='6 pints of Beer image'
-            style = {styles.beer}
-          />
-          <Header as='h1' style={styles.header}>DRINK ALL OF THE BEERS</Header>
-        </Segment>
-        <Grid>
-          <Grid.Column computer={8} tablet={8} mobile={16}>
-            <Segment inverted>
-            </Segment>
-          </Grid.Column>
-          <Grid.Column computer={8} tablet={8} mobile={16}>
-            <Segment inverted>
-            </Segment>
-          </Grid.Column>
+      <Container>
+        <Header style={styles.header}>Beers</Header>
+        <Grid columns={16}>
+          <Grid.Row>
+            {this.beers()}
+          </Grid.Row>
         </Grid>
-      </Segment>
-    );
+      </Container>
+    )
   }
 }
+
+const mapStateToProps = (state) => {
+    return { beers: state.beers }
+}
+
 const styles = {
   iframe: {
     width: '100%',
-    height: '100vh'
+    height: '100vh',
   },
   centered: {
     margin: '0 auto',
   },
   header: {
-    color: '#2ecc40'
-  },
-  beer: {
-    width: '30%',
-    height: '30%',
-    margin: '0 auto'
+    color: '#2ecc40',
+    margin: '0 auto',
+
   }
 }
 
-export default Beers;
+export default connect(mapStateToProps)(Beers);
