@@ -20,3 +20,11 @@ first commit - beers page working and logo added 12:00 ish
 6:00pm - evening push; relearned how to access things in an API call. 
   - res.data = the response. 
   - res.data.entries = what im actually trying to get to. not just res.data. >.<
+
+7:40pm - Nevermind. API call still not working. Beers still failing to show up. 
+       - renameD Beers.js to BeerList.js to help clarify whats going where.
+       - Im 90% sure I'm not doing very well.
+
+
+
+

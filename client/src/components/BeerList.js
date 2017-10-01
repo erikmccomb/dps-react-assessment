@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import { getBeers } from '../actions/beers';
 import { Container, Grid, Header, Card, Image } from 'semantic-ui-react';
 
 
-class Beers extends Component {
+class BeerList extends Component {
 
   componentDidMount() {
     this.props.dispatch(getBeers())
@@ -15,8 +14,7 @@ class Beers extends Component {
 
     const { beers } = this.props;
 
-    return beers.map( beer =>
-      <Grid.Column computer={4}>
+    return beers.map( beer => {
         <Card>
           <Card.Content>
             <Card.Header>
@@ -24,26 +22,21 @@ class Beers extends Component {
             </Card.Header>
           </Card.Content>
         </Card>
-      </Grid.Column>
-    )
+    })
   }
 
   render() {
     return (
-      <Container textAlign='center'>
-        <Image
-          src={require('../images/beer.png')}
-          alt='6 pints of Beer image'
-          style = {styles.centered}
-          size="small"
-        />
-        <Header style={styles.header}>Beers</Header>
-        <Grid columns={16}>
-          <Grid.Row>
-            {this.beers()}
-          </Grid.Row>
-        </Grid>
-      </Container>
+      <Image
+        src={require('../images/beer.png')}
+        alt='6 pints of Beer image'
+        style = {styles.centered}
+        size="small"
+      />
+      <Header style={styles.header}>Beers</Header>
+      <Card.Group itemsPerRow={1}>
+        { this.beers() }
+      </Card.Group>
     )
   }
 }
@@ -67,4 +60,4 @@ const styles = {
   }
 }
 
-export default connect(mapStateToProps)(Beers);
+export default connect(mapStateToProps)(BeerList);
