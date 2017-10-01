@@ -33,3 +33,8 @@ first commit - beers page working and logo added 12:00 ish
 sunday 7:00am - not all beers have images. adding description to beers and some 
               - other info to make the site interesting
 
+              why cant i get the glass type by typing beer.glass.name
+              in the same way i CAN get beer.style.short_name?
+
+
+

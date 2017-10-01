@@ -13,19 +13,12 @@ class BeerList extends Component {
     const { beers } = this.props;
 
     return beers.map( beer => 
-        <Card>
-          
-          <Card.Content>
-            <Card.Header style={styles.header}>
-              {beer.name}
-            </Card.Header>
-          </Card.Content>
-          
-          <Card.Content>
-          
-          </Card.Content>
-
-        </Card>
+      <Card
+        header={beer.name}
+        meta={beer.style.short_name}
+        description={beer.description}
+        extra={beer.abv}
+      />
     )
   }
 

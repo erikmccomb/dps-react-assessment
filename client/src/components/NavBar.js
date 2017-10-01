@@ -19,7 +19,7 @@ class NavBar extends Component {
             <Menu.Item name='Beers' active={this.activeItem('/BeerList')} />
           </Link>
           <Link to='/breweries'>
-            <Menu.Item name='Breweries' active={this.activeItem('/breweries')} />
+            <Menu.Item name='Breweries' active={this.activeItem('/BreweriesList')} />
           </Link>
           <Menu.Menu position='right'>
             <Link to='/'>
