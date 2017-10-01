@@ -1,28 +1,45 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Grid, Header, Card, Image } from 'semantic-ui-react';
+import { Container, Grid, Header, Card, Image, Popup, Button, Modal } from 'semantic-ui-react';
 import { getBeers } from '../actions/beers';
 import { Link } from 'react-router-dom';
 
 class BeerList extends Component {
+  state = { open: false }
+  show = dimmer => () => this.setState({ dimmer, open: true })
+  close = () => this.setState({ open: false })
+  
   componentDidMount() {
     this.props.dispatch(getBeers())
   }
 
   beers = () => {
     const { beers } = this.props;
+    const { open, dimmer } = this.state;
+    
     return beers.map( beer => 
-      <Card
-        key={beer.id}
-        header={<Link to={`/beer/${beer.id}`}>{beer.name}</Link>}
-        meta={beer.style.short_name}
-        description={beer.description}
-        extra={beer.abv}
-      />
+      <div key={beer.id}>
+      <Button onClick={this.show('blurring')}>{beer.name}</Button>
+      <Modal dimmer={dimmer} open={open} onClose={this.close}>
+        <Modal.Header>{beer.name}</Modal.Header>
+        <Modal.Content>
+          <Modal.Description>
+            <Header>{beer.style.name}</Header>
+            {beer.description}
+          </Modal.Description>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button color='black' onClick={this.close}>
+            Close
+          </Button>
+        </Modal.Actions>
+      </Modal>
+      </div>
     )
   }
 
   render() {
+    const { open, dimmer } = this.state
     return (
       <Container>
         <Header style={styles.header}>Beers</Header>
@@ -32,9 +49,8 @@ class BeerList extends Component {
           style = {styles.centered}
           size="medium"
         />
-        <Card.Group itemsPerRow={2}>
+       
           { this.beers() }
-        </Card.Group>
       </Container>
     )
   }
@@ -51,7 +67,7 @@ const styles = {
     textAlign: 'center',
   },
   header: {
-    color: '#2ecc40',
+    color: '#BC6733',
     margin: '0 auto',
     textAlign: 'center'
   }

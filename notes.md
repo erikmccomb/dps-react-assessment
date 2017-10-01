@@ -42,5 +42,7 @@ sunday 10:00am - copied all my beer docs and made breweries. breweries first 50
 sunday 11:00am - break. looked at the pagination requirement and i dont know what to do.
                - skipping it for now, and doing section 3
 
+sunday 12:00pm-12:46 - Cant show an individual beer. now i can. commit now so i can remember what i did. 
+
 
 

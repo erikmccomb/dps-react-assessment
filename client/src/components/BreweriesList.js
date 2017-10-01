@@ -58,7 +58,7 @@ const styles = {
     textAlign: 'center',
   },
   header: {
-    color: '#2ecc40',
+    color: '#BC6733',
     margin: '0 auto',
     textAlign: 'center'
   }
