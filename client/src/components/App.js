@@ -9,6 +9,14 @@ import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
 
 class App extends Component {
+  constructor() {
+    super();
+    //initialState 
+    this.state = {
+      beers: {}
+    };
+  }
+
   render() {
     return (
       <Segment style={styles.background}>
@@ -27,7 +35,7 @@ class App extends Component {
 
 const styles = {
   background: {
-    backgroundColor: 'black',
+    backgroundColor: 'white',
   },
 }
 
