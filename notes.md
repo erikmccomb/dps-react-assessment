@@ -36,5 +36,8 @@ sunday 7:00am - not all beers have images. adding description to beers and some
               why cant i get the glass type by typing beer.glass.name
               in the same way i CAN get beer.style.short_name?
 
+sunday 10:00am - copied all my beer docs and made breweries. breweries first 50 
+               - working. part one technically done. not happy with styling.
+
 
 
