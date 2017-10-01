@@ -39,5 +39,8 @@ sunday 7:00am - not all beers have images. adding description to beers and some
 sunday 10:00am - copied all my beer docs and made breweries. breweries first 50 
                - working. part one technically done. not happy with styling.
 
+sunday 11:00am - break. looked at the pagination requirement and i dont know what to do.
+               - skipping it for now, and doing section 3
+
 
 

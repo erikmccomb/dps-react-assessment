@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Grid, Header, Card, Image } from 'semantic-ui-react';
 import { getBeers } from '../actions/beers';
+import { Link } from 'react-router-dom';
 
 class BeerList extends Component {
-
   componentDidMount() {
     this.props.dispatch(getBeers())
   }
 
   beers = () => {
     const { beers } = this.props;
-
     return beers.map( beer => 
       <Card
-        header={beer.name}
+        key={beer.id}
+        header={<Link to={`api/all_beers/${beer.id}`}>{beer.name}</Link>}
         meta={beer.style.short_name}
         description={beer.description}
         extra={beer.abv}
@@ -32,27 +32,20 @@ class BeerList extends Component {
           style = {styles.centered}
           size="medium"
         />
-        <Grid columns={1}>
-          <Grid.Column width={16}>
-            <Card.Group itemsPerRow={2}>
-              { this.beers() }
-            </Card.Group>
-          </Grid.Column>
-        </Grid>
+        <Card.Group itemsPerRow={2}>
+          { this.beers() }
+        </Card.Group>
       </Container>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-    return { beers: state.beers }
+  const beers = state.beers; 
+  return { beers }
 }
 
 const styles = {
-  iframe: {
-    width: '100%',
-    height: '100vh',
-  },
   centered: {
     margin: '0 auto',
     textAlign: 'center',
