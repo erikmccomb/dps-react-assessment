@@ -1,7 +1,7 @@
 const breweries = (state = [], action) => {
   switch (action.type) {
     case 'BREWERIES':
-      return action.breweries
+      return action.all_breweries
     default:
       return state;
   }

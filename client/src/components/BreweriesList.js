@@ -2,22 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Grid, Header, Card, Image } from 'semantic-ui-react';
 import { getBreweries } from '../actions/breweries';
+import { Link } from 'react-router-dom';
 
 class BreweriesList extends Component {
-
   componentDidMount() {
     this.props.dispatch(getBreweries());
   }
-
   breweries = () => {
     const { breweries } = this.props;
-
     return breweries.map(brewery =>
       <Card
-        header={brewery.name}
-        meta={brewery.name}
-        description={brewery.name}
-        extra={brewery.name}
+        key={brewery.id}
+        header={<Link style={styles.header} to={`/brewery/${brewery.id}`}>{brewery.name}</Link>}
       />
     )
   }
@@ -25,34 +21,26 @@ class BreweriesList extends Component {
   render() {
     return (
       <Container>
-        <Header style={styles.header}>Breweries</Header>
         <Image
-          src={require('../images/beer.png')}
-          alt='6 pints of Beer image'
+          src={require('../images/brewery.png')}
+          alt='Breweries'
           style={styles.centered}
-          size="medium"
+          size="large"
         />
-        <Grid columns={1}>
-          <Grid.Column width={16}>
-            <Card.Group itemsPerRow={2}>
-              {this.breweries()}
-            </Card.Group>
-          </Grid.Column>
-        </Grid>
+        <Card.Group itemsPerRow={2}>
+          {this.breweries()}
+        </Card.Group>
       </Container>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  return { breweries: state.breweries }
+  const breweries = state.breweries;
+  return { breweries }
 }
 
 const styles = {
-  iframe: {
-    width: '100%',
-    height: '100vh',
-  },
   centered: {
     margin: '0 auto',
     textAlign: 'center',

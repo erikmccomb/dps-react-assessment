@@ -6,6 +6,7 @@ import Home from './Home';
 import BeerList from './BeerList';
 import BreweriesList from './BreweriesList';
 import BeerView from './BeerView';
+import BreweryView from './BreweryView';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
 
@@ -21,6 +22,7 @@ class App extends Component {
           <Route exact path='/all_beers' component={BeerList} />
           <Route exact path='/beer/:id' component={BeerView} />
           <Route exact path='/all_breweries' component={BreweriesList} />
+          <Route exact path='/brewery/:id' component={BreweryView} />
           <Route component={NoMatch} />
         </Switch>
       </Segment>
