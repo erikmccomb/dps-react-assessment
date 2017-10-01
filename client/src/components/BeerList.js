@@ -27,16 +27,18 @@ class BeerList extends Component {
 
   render() {
     return (
-      <Image
-        src={require('../images/beer.png')}
-        alt='6 pints of Beer image'
-        style = {styles.centered}
-        size="small"
-      />
-      <Header style={styles.header}>Beers</Header>
-      <Card.Group itemsPerRow={1}>
-        { this.beers() }
-      </Card.Group>
+      <div>
+        <Image
+          src={require('../images/beer.png')}
+          alt='6 pints of Beer image'
+          style = {styles.centered}
+          size="small"
+        />
+        <Header style={styles.header}>Beers</Header>
+        <Card.Group itemsPerRow={1}>
+          { this.beers() }
+        </Card.Group>
+      </div>
     )
   }
 }
