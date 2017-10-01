@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Header, Card, Image } from 'semantic-ui-react';
+import { Segment, Container, Header, Card, Image } from 'semantic-ui-react';
 import { getBeers } from '../actions/beers';
 import { Link } from 'react-router-dom';
 
@@ -20,18 +20,19 @@ class BeerList extends Component {
 
   render() {
     return (
-      <Container>
-        <Header style={styles.header}>Beers</Header>
+    <Segment basic>
+      <Segment basic textAlign='center'>
         <Image
           src={require('../images/beer.png')}
           alt='6 pints of Beer image'
           style = {styles.centered}
           size="medium"
         />
+      </Segment>
         <Card.Group itemsPerRow={2}>
           { this.beers() }
         </Card.Group>
-      </Container>
+      </Segment>
     )
   }
 }
