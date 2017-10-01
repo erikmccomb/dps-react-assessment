@@ -30,7 +30,6 @@ first commit - beers page working and logo added 12:00 ish
 
 8:39pm - Beers showing up. stopping for the night... or until later.
 
-sunday 7:00am - 
-
-
+sunday 7:00am - not all beers have images. adding description to beers and some 
+              - other info to make the site interesting
 

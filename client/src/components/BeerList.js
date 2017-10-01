@@ -14,11 +14,17 @@ class BeerList extends Component {
 
     return beers.map( beer => 
         <Card>
+          
           <Card.Content>
             <Card.Header style={styles.header}>
               {beer.name}
             </Card.Header>
           </Card.Content>
+          
+          <Card.Content>
+          
+          </Card.Content>
+
         </Card>
     )
   }
@@ -27,15 +33,12 @@ class BeerList extends Component {
     return (
       <Container>
         <Header style={styles.header}>Beers</Header>
-
         <Image
-          style={styles.backdrop}
-          source={require('../images/beer.png')}>
-          <View style={styles.backdropView}>
-            <Text style={styles.headline}>Headline</Text>
-          </View>
-        </Image>
-
+          src={require('../images/beer.png')}
+          alt='6 pints of Beer image'
+          style = {styles.centered}
+          size="medium"
+        />
         <Grid columns={1}>
           <Grid.Column width={16}>
             <Card.Group itemsPerRow={2}>
@@ -53,22 +56,19 @@ const mapStateToProps = (state) => {
 }
 
 const styles = {
+  iframe: {
+    width: '100%',
+    height: '100vh',
+  },
   centered: {
     margin: '0 auto',
-    textalign: 'center',
+    textAlign: 'center',
   },
   header: {
     color: '#2ecc40',
-    textAlign: 'center',
-  },
-  container: {
-    flex: 1,
-    width: undefined,
-    height: undefined,
-    backgroundColor: 'transparent',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+    margin: '0 auto',
+    textAlign: 'center'
+  }
 }
 
 export default connect(mapStateToProps)(BeerList);
