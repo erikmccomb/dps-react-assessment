@@ -25,6 +25,12 @@ first commit - beers page working and logo added 12:00 ish
        - renameD Beers.js to BeerList.js to help clarify whats going where.
        - Im 90% sure I'm not doing very well.
 
+7:56pm - lost. going to look at the rest of the project requirements, 
+       - take a break, and come back to it.
+
+8:39pm - Beers showing up. stopping for the night... or until later.
+
+sunday 7:00am - 
 
 
 

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getBeers } from '../actions/beers';
 import { Container, Grid, Header, Card, Image } from 'semantic-ui-react';
-
+import { getBeers } from '../actions/beers';
 
 class BeerList extends Component {
 
@@ -11,55 +10,65 @@ class BeerList extends Component {
   }
 
   beers = () => {
-
     const { beers } = this.props;
 
-    return beers.map( beer => {
+    return beers.map( beer => 
         <Card>
           <Card.Content>
-            <Card.Header>
+            <Card.Header style={styles.header}>
               {beer.name}
             </Card.Header>
           </Card.Content>
         </Card>
-    })
+    )
   }
 
   render() {
     return (
-      <div>
-        <Image
-          src={require('../images/beer.png')}
-          alt='6 pints of Beer image'
-          style = {styles.centered}
-          size="small"
-        />
+      <Container>
         <Header style={styles.header}>Beers</Header>
-        <Card.Group itemsPerRow={1}>
-          { this.beers() }
-        </Card.Group>
-      </div>
+
+        <Image
+          style={styles.backdrop}
+          source={require('../images/beer.png')}>
+          <View style={styles.backdropView}>
+            <Text style={styles.headline}>Headline</Text>
+          </View>
+        </Image>
+
+        <Grid columns={1}>
+          <Grid.Column width={16}>
+            <Card.Group itemsPerRow={2}>
+              { this.beers() }
+            </Card.Group>
+          </Grid.Column>
+        </Grid>
+      </Container>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-    return { all_beers: state.all_beers }
+    return { beers: state.beers }
 }
 
 const styles = {
-  iframe: {
-    width: '100%',
-    height: '100vh',
-  },
   centered: {
     margin: '0 auto',
+    textalign: 'center',
   },
   header: {
     color: '#2ecc40',
-    margin: '0 auto',
-
-  }
+    textAlign: 'center',
+  },
+  container: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 }
 
 export default connect(mapStateToProps)(BeerList);

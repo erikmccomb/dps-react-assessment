@@ -1,6 +1,6 @@
 const beers = (state = [], action) => {
   switch (action.type) {
-    case 'ALL_BEERS':
+    case 'BEERS':
       return action.all_beers
     // case 'ADD_APP':
     //   return [action.app, ...state]
