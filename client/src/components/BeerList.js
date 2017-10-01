@@ -14,7 +14,7 @@ class BeerList extends Component {
     return beers.map( beer => 
       <Card
         key={beer.id}
-        header={<Link to={`api/all_beers/${beer.id}`}>{beer.name}</Link>}
+        header={<Link to={`/beer/${beer.id}`}>{beer.name}</Link>}
         meta={beer.style.short_name}
         description={beer.description}
         extra={beer.abv}
